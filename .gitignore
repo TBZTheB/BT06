@@ -1,32 +1,37 @@
-# Prerequisites
-*.d
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+//c6-06
+/*
+#include<iostream>
+#define MAX 20
+using namespace std;
 
-# Precompiled Headers
-*.gch
-*.pch
+int n;
+int Bool[MAX] = {0};
+int a[MAX];
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+void xuat() {
+    for (int i = 1; i <= n; i++)
+        cout << a[i] << " ";
+    cout << endl;
+}
 
-# Fortran module files
-*.mod
-*.smod
+void Try(int k) {
+    for (int i = 1; i <= n; i++) {
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+        if (!Bool[i]) {
+            a[k] = i;
+            Bool[i] = 1;
+            if (k == n)
+                xuat();
+            else
+                Try(k + 1);
+            Bool[i] = 0;
+        }
+    }
+}
 
-# Executables
-*.exe
-*.out
-*.app
+int main() {
+    cin >> n;
+    Try(1);
+}
+*/
